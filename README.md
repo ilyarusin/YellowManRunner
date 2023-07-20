@@ -1,7 +1,7 @@
 # YellowManRunner
 
 <div align="left">
-  <img src="https://media.giphy.com/media/v1.Y2lkPTc5MGI3NjExdnV5ZHV2a3l1djRtbmR1OGJtdXlranZ2Zms5OGJkc3p1OHd1dzN1YyZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/OA9ZaDNeBSTPslv9Cj/giphy.gif" width="600" height="300"/>
+  <img src="https://media.giphy.com/media/v1.Y2lkPTc5MGI3NjExdnV5ZHV2a3l1djRtbmR1OGJtdXlranZ2Zms5OGJkc3p1OHd1dzN1YyZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/OA9ZaDNeBSTPslv9Cj/giphy.gif" width="500" height="300"/>
 </div>
 <br>
 Браузерная игра в жанре “раннер” сделанная на движке Unity.
