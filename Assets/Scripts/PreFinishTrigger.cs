@@ -11,7 +11,6 @@ public class PreFinishTrigger : MonoBehaviour
         if (playerBehaviour)
         {
             playerBehaviour.StartPreFinishBehaviour();
-
         }
     }
 }

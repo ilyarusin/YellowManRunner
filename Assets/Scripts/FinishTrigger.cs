@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class FinishTrigger : MonoBehaviour
 {
@@ -14,9 +15,16 @@ public class FinishTrigger : MonoBehaviour
         {
             _danceMusic.Play();
             playerBehaviour.StartFinishBehaviour();
-            FindObjectOfType<GameManager>().ShowFinishWindow();
             
 
+            if (SceneManager.GetActiveScene().buildIndex == 10)
+            {
+                FindObjectOfType<GameManager>().ShowWinnerWindow();
+            }
+            else
+            {
+                FindObjectOfType<GameManager>().ShowFinishWindow();
+            }
         }
     }
 }
