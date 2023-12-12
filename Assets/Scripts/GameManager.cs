@@ -19,15 +19,19 @@ public class GameManager : MonoBehaviour
     private void Start()
     {
         _levelText.text = "Уровень " + SceneManager.GetActiveScene().buildIndex.ToString();
+#if !UNITY_EDITOR && UNITY_WEBGL
+        // _levelText.text = SceneManager.GetActiveScene().name;
         ShowAdv();
+#endif
     }
     public void Play()
     {
-#if !UNITY_EDITOR && UNITY_WEBG
+#if !UNITY_EDITOR && UNITY_WEBGL
         Progress.Instance.Save();
 #endif
         _startMenu.SetActive(false);
         FindObjectOfType<PlayerBehaviour>().Play();
+
     }
 
     public void ShowFinishWindow()
@@ -45,14 +49,13 @@ public class GameManager : MonoBehaviour
         int next = SceneManager.GetActiveScene().buildIndex + 1;
         if (next < SceneManager.sceneCountInBuildSettings)
         {
+#if !UNITY_EDITOR && UNITY_WEBGL
             _coinManager.SaveToProgress();
-
-#if !UNITY_EDITOR && UNITY_WEBG
             Progress.Instance.PlayerInfo.Level = SceneManager.GetActiveScene().buildIndex;
-
             Progress.Instance.Save();
 #endif
             SceneManager.LoadScene(next);
+
         }
     }
 }

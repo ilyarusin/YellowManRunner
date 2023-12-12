@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class PlayerMove : MonoBehaviour
 {
-    [SerializeField] float _speed;
+    public float _speed;
     float _oldMousePositionX;
     float _eulerY;
     [SerializeField] Animator _animator;
@@ -12,9 +12,6 @@ public class PlayerMove : MonoBehaviour
 
     void Update()
     {
-
-        
-
         if (Input.GetMouseButtonDown(0))
         {
             _oldMousePositionX = Input.mousePosition.x;

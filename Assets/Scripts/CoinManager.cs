@@ -40,6 +40,7 @@ public class CoinManager : MonoBehaviour
 
     public void ShowAdvButton()
     {
+        FinishTrigger.Instance._danceMusic.Stop();
         AddCoinsExtern(100);
         _advButton.SetActive(false);
     }

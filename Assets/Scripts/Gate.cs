@@ -13,6 +13,7 @@ public class Gate : MonoBehaviour
         _gateAppearance.UpdateVisual(_deformationType, _value);
     }
 
+
     private void OnTriggerEnter(Collider other)
     {
         PlayerModifier playerModifier = other.attachedRigidbody.GetComponent<PlayerModifier>();
@@ -26,6 +27,12 @@ public class Gate : MonoBehaviour
             {
                 playerModifier.AddHeight(_value);
             }
+
+            else if (_deformationType == DeformationType.Acceleration)
+            {
+                playerModifier.AddAcceleration(10);
+            }
+        
 
             Destroy(gameObject);
         }

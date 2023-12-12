@@ -35,5 +35,7 @@ public class InApp : MonoBehaviour
     public void SetCrownToTrue()
     {
         HasCrown = true;
+        Progress.Instance.PlayerInfo.Crown = HasCrown;
+        Progress.Instance.Save();
     }
 }

@@ -6,13 +6,11 @@ using UnityEngine;
 
 public class Language : MonoBehaviour
 {
-    public static Language Instance;
-
     [DllImport("__Internal")]
     private static extern string GetLang();
-
+    
     public string currentLanguage;
-    //[SerializeField] TextMeshProUGUI _languageText;
+    public static Language Instance;
 
     private void Awake()
     {

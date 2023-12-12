@@ -24,10 +24,12 @@ public class Yandex : MonoBehaviour
         RateGame();
     }
 
+    /*
     public void PlayerAuthButton()
     {
         // GetPlayerData();
     }
+    */
 
     public void SetName(string name)
     {

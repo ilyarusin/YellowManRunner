@@ -5,7 +5,29 @@ using UnityEngine.SceneManagement;
 
 public class FinishTrigger : MonoBehaviour
 {
-    [SerializeField] AudioSource _danceMusic;
+    [SerializeField] public AudioSource _danceMusic;
+    public static FinishTrigger Instance;
+    private bool isMusicOn;
+    [SerializeField] PlayerMove _playerMove;
+
+    private void Awake()
+    {
+        if (Instance == null)
+        {
+            transform.parent = null;
+            DontDestroyOnLoad(gameObject);
+            Instance = this;
+        }
+        else
+        {
+            Destroy(gameObject);
+        }
+    }
+
+    private void Start()
+    {
+        transform.parent = null;
+    }
 
     private void OnTriggerEnter(Collider other)
     {
@@ -27,4 +49,10 @@ public class FinishTrigger : MonoBehaviour
             }
         }
     }
+
+    public void TurnOffMusic()
+    {
+        _danceMusic.Stop();
+    }
+
 }

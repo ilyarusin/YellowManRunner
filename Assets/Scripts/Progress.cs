@@ -11,6 +11,7 @@ public class PlayerInfo
     public int Width;
     public int Height;
     public int Level;
+    public bool Crown;
 }
 public class Progress : MonoBehaviour
 {
@@ -47,12 +48,13 @@ public class Progress : MonoBehaviour
     private void Update()
     {
         //  нопка сброса прогресса дл€ тестов
-
+        /*
         if (Input.GetKeyDown(KeyCode.Backspace))
         {
             PlayerInfo = new PlayerInfo();
             Save();
         }
+        */
 
     }
     public void Save()

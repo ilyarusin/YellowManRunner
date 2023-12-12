@@ -60,6 +60,10 @@ mergeInto(LibraryManager.library, {
   ShowAdv: function() {
     ysdk.adv.showFullscreenAdv({
         callbacks: {
+            onOpen: () => {
+                console.log('Video ad open.');
+
+            },
             onClose: function(wasShown) {
               // some action after close
             },
@@ -75,6 +79,7 @@ mergeInto(LibraryManager.library, {
         callbacks: {
             onOpen: () => {
               console.log('Video ad open.');
+              myGameInstance.SendMessage("Finish", "TurnOffMusic");
             },
             onRewarded: () => {
               console.log('Rewarded!');

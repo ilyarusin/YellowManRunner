@@ -28,5 +28,6 @@ public class PlayerBehaviour : MonoBehaviour
     {
         _preFinishBehaviour.enabled = false;
         _animator.SetTrigger("Dance");
+        _playerMove.enabled = false;
     }
 }

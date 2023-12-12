@@ -6,6 +6,7 @@ public class PlayerModifier : MonoBehaviour
 {
     [SerializeField] int _width;
     [SerializeField] int _height;
+    [SerializeField] int _accelerationSpeed;
 
     float _widthMultiplier = 0.0005f;
     float _heightmultiplier = 0.01f;
@@ -18,7 +19,10 @@ public class PlayerModifier : MonoBehaviour
     [SerializeField] Transform _colliderTransform;
 
     [SerializeField] AudioSource _increaseSound;
-    
+    [SerializeField] PlayerMove _playerMove;
+
+
+
     private void Start()
     {
         SetWidth(Progress.Instance.PlayerInfo.Width);
@@ -31,6 +35,7 @@ public class PlayerModifier : MonoBehaviour
         _topSpine.position = _bottomSpine.position + new Vector3(0, offsetY, 0);
         _colliderTransform.localScale = new Vector3(1, 1.84f + _height * _heightmultiplier, 1);
 
+        /*
         if (Input.GetKeyDown(KeyCode.W))
         {
             AddWidth(20);
@@ -40,6 +45,7 @@ public class PlayerModifier : MonoBehaviour
         {
             AddHeight(20);
         }
+        */
     }
 
     public void AddWidth(int value)
@@ -51,6 +57,19 @@ public class PlayerModifier : MonoBehaviour
         {
             _increaseSound.Play();
         }
+    }
+
+    public void AddAcceleration(int value)
+    {
+        _accelerationSpeed = value;
+        StartCoroutine(DoStuff());
+    }
+
+    private IEnumerator DoStuff()
+    {
+        _playerMove._speed = _accelerationSpeed;
+        yield return new WaitForSeconds(3f);
+
     }
 
     public void AddHeight(int value)
@@ -93,7 +112,6 @@ public class PlayerModifier : MonoBehaviour
     public void UpdateWidth()
     {
         _renderer.material.SetFloat("_PushValue", _width * _widthMultiplier);
-
     }
 
     void Die()

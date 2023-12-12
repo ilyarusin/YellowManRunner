@@ -6,7 +6,8 @@ using UnityEngine.UI;
 
 public enum DeformationType {
     Width,
-    Height
+    Height,
+    Acceleration
 }
 
 public class GateAppearance : MonoBehaviour
@@ -18,6 +19,7 @@ public class GateAppearance : MonoBehaviour
 
     [SerializeField] Color _colorPositive;
     [SerializeField] Color _colorNegative;
+    [SerializeField] Color _colorAcceleration;
 
     // »конки увеличени€/уменьшени€ ширины
     [SerializeField] GameObject _expandLabel;
@@ -26,6 +28,9 @@ public class GateAppearance : MonoBehaviour
     // »конки увеличени€/уменьшени€ высоты
     [SerializeField] GameObject _upLabel;
     [SerializeField] GameObject _downLabel;
+
+    // »конка ускорени€ персонажа
+    [SerializeField] GameObject _accelerationLabel;
 
 
     public void UpdateVisual(DeformationType deformationType, int value)
@@ -43,7 +48,7 @@ public class GateAppearance : MonoBehaviour
         }
         else
         {
-            SetColor(_colorNegative);
+            SetColor(_colorAcceleration);
         }
 
         _text.text = prefix + value.ToString();
@@ -52,6 +57,7 @@ public class GateAppearance : MonoBehaviour
         _shrinkLabel.SetActive(false);
         _upLabel.SetActive(false);
         _downLabel.SetActive(false);
+        _accelerationLabel.SetActive(false);
 
         if (deformationType == DeformationType.Width)
         {
@@ -74,6 +80,11 @@ public class GateAppearance : MonoBehaviour
             {
                 _downLabel.SetActive(true);
             }
+        }
+
+        else if (deformationType == DeformationType.Acceleration)
+        {
+            _accelerationLabel.SetActive(true);
         }
     }
 
